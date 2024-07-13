@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const MoviesApiFetch = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+  baseURL: "https://0kadddxyh3.execute-api.us-east-1.amazonaws.com",
   headers: {
     Accept: "application/json",
     "Accept-Language": "en",

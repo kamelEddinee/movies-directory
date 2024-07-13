@@ -1,9 +1,9 @@
 "use client";
 import { useGetMoviesQuery } from "@/Queries";
-import MovieCard from "./Components/MovieCart";
+import MovieCard from "@/components/MovieCart";
 import { Input } from "@/components/ui/input";
 import { PaginationDemo } from "@/components/paginationDemo";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { ComboboxDemo } from "@/components/ui/combobox";
 
 interface MovieQueryParams {
