@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Movies App
 
-## Getting Started
+A movie directory application featuring search by movie title and genre, with custom-built pagination.
+## Link 
+https://main--movies-directory100.netlify.app/
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next.js
+- Shadcn components
+- React Query for data fetching and caching
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Search by movie title
+- Search by genre
+- Custom-built pagination
+- Caching optimization for improved performance when navigating between pages or repeating searches
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Known Issues and Future Improvements
 
-## Learn More
+1. **Total Search Items Edge Case**: The total number of search results depends on the number of items on the last page. Ideally, this should be fetched directly from the API.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Genre Selection**: A genre selection box is included for users to search by genre list. However, the API doesn't return the movie genre names. To address this, i have to fetch and parse the genres incrementally after the first render due to the potential cost of returning all movies grouped by genre from the API.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Shadcn Combobox Bug**: An interesting anecdote - I discovered a bug in the Shadcn Combobox component while working on this project. The bug is documented but not yet fixed. You can find more details here:
+   - Combobox documentation: https://ui.shadcn.com/docs/components/combobox  this component don't work correctly,unless modified 
+   - GitHub issue: https://github.com/shadcn-ui/ui/issues/2980
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. **Movie Details Modal**: A modal to display full details for each movie .
 
-## Deploy on Vercel
+5. **Token Management**:The API token is currently stored as an environment variable for simplicity
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. **Pagination Edge Cases**: While many edge cases have been handled, there are still some that need to be addressed.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+7. **Additional Features**:
+   - Direct page navigation
+   - Adjustable number of items per page
+   - Code refactoring (e.g., isolating filters and movie grid into separate components)
+
+## Project Structure
+
+- `ui/`: Contains Shadcn components
+- `components/`: Includes a ChatGPT-generated card component to quickly create a working prototype.
+
+## Notes
+
+- The pagination component was particularly enjoyable to build, despite its complexity.
+- The approach taken doesn't take SEO into consideration; it's optimized for a Single Page Application (SPA). For better SEO optimization, using server components would be the best approach.
